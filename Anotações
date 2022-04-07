@@ -1,0 +1,14 @@
+Comando knex:
+- knex init
+- knex migrate:make {nome da migrate}
+- knex migrate:latest // Comando para rodar as migrate
+- knex seed:make {nome da seed}
+- knex seed:run //Rodar seed
+
+DB:
+ - Limpar banco
+    drop schema public cascade;
+	create schema public;
+
+
+
