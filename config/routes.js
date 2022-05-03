@@ -9,4 +9,6 @@ module.exports = app => {
     //     .all(app.config.passport.authenticate())
     //     .get(app.api.gerence.home.get)
 
+    app.route('/api/cadastro').post(app.api.auth.cadastro.cadastrar);
+
 }
