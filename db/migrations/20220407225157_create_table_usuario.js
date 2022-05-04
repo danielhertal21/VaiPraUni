@@ -6,7 +6,6 @@ exports.up = function(knex) {
         table.string('cpf', 11).notNull().unique();
         table.string('whatsapp');
         table.string('email').unique();
-        table.string('usuario').unique();
         table.string('senha');
     });
 };

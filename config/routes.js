@@ -10,5 +10,12 @@ module.exports = app => {
     //     .get(app.api.gerence.home.get)
 
     app.route('/api/cadastro').post(app.api.auth.cadastro.cadastrar);
+    app.route('/api/login').post(app.api.auth.login.singin);
 
+
+    app.route('/api/teste')
+        .all(app.api.auth.middleware.autenticar)
+        .post((req, res)=>{
+            return res.send();
+        })
 }
