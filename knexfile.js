@@ -8,14 +8,14 @@ const dontenv = require('dotenv');
 dontenv.config();
 
 module.exports = {
-	client: 'mysql',
+	client: 'mysql2',
 	connection: {
 		host: process.env.CONNECTION_HOST,
 		port: process.env.CONNECTION_PORT,
 		database: process.env.CONNECTION_DATABASE,
 		user: process.env.CONNECTION_USER,
 		password: process.env.CONNECTION_PASSWORD,
-		timezone: "utc"
+		timezone: process.env.TZ
 		//connectionString: process.env.DATABASE_URL,
       	//ssl: { rejectUnauthorized: false },
 	},

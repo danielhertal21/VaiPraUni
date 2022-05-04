@@ -5,7 +5,7 @@ module.exports = app => {
 
     const { existsOrError } = app.api.validation;
 
-    const singin = async (req, res) => {
+    return async (req, res) => {
         try {
             const { usuario, senha } = req.body;
 
@@ -28,5 +28,4 @@ module.exports = app => {
         }
     }
 
-    return { singin }
 }

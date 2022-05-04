@@ -9,7 +9,7 @@ module.exports = app => {
         return bcrypt.hashSync(password, salt);
     }
 
-    const cadastrar = async (req, res) => {
+    return async (req, res) => {
         try {
             let { nome, cpf, whatsapp, email, senha } = req.body;
 
@@ -30,11 +30,10 @@ module.exports = app => {
 
             await app.db('usuario').insert({nome, cpf, whatsapp, email, senha});
 
-            return res.status(201).send({nome, cpf, whatsapp, email, senha});
+            return res.status(201).send({nome, cpf, whatsapp, email});
         } catch (err) {
             return res.status(400).send(err);
         }
     }
 
-    return { cadastrar }
 }
