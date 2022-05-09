@@ -8,9 +8,10 @@ exports.up = function(knex) {
         table.string('marca');
         table.string('modelo');
         table.integer('ano');
+        table.boolean('ativo').defaultTo(true);
     });
 };
 
 exports.down = function(knex) {
-    return knex.schema.dropTableIfExists('veiculo');
+    return knex.schema.dropTableIfExists('vaiculo');
 };
