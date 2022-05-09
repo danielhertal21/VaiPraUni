@@ -30,35 +30,6 @@ module.exports = app => {
         if (!value) throw msg
     }
 
-
-    /// ???? Necessidade?
-    function concatExist(valor) {
-        var keys = Object.keys(valor);
-        var values = Object.values(valor);
-        var lista = {};
-        for (var x = 0; x < values.length; x++) {
-            if (values[x] != undefined) {
-                lista[keys[x]] = values[x];
-            }
-        }
-
-        return lista;
-    }
-
-
-    /// ???? necessidade?
-    function concatListExist(valor, lista) {
-        var keys = Object.keys(valor);
-        var values = Object.values(valor);
-        for (var x = 0; x < values.length; x++) {
-            if (values[x] != undefined) {
-                lista[keys[x]] = values[x];
-            }
-        }
-        return lista;
-    }
-
-
     // Validador de CNPJ;
     function validationCNPJ(cnpj, msg) {
         if (typeof cnpj !== 'string') {
@@ -145,16 +116,6 @@ module.exports = app => {
         return
     }
 
-    // Data atual da maquina /// Verificar!!!
-    function getData(data) {
-        var hoje = new Date();
-        if (data != undefined) {
-            hoje = new Date(data)
-        }
-        var mes = hoje.getMonth() + 1;
-        var dia = hoje.getDate();
-        return hoje.getFullYear() + "-" + (mes < 10 ? "0" + mes : mes) + "-" + (dia < 10 ? "0" + dia : dia);
-    }
 
-    return { getData, existsOrError, notExistsOrError, equalsOrError, validationCNPJ, validationCPF, inactiveOrError, concatExist, concatListExist }
+    return { existsOrError, notExistsOrError, equalsOrError, validationCNPJ, validationCPF, inactiveOrError }
 }
