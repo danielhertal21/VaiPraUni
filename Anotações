@@ -1,3 +1,9 @@
+1 Criar schema no banco mysql
+2 Configurar nome do banco e usuario/senha arquivo .env
+
+
+
+
 Comando knex:
 - knex init
 - knex migrate:make {nome da migrate}
