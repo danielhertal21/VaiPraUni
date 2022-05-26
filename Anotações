@@ -1,7 +1,6 @@
 1 Criar schema no banco mysql
 2 Configurar nome do banco e usuario/senha arquivo .env
-
-
+3 executar: npm run dev
 
 
 Comando knex:

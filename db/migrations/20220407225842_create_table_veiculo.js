@@ -1,6 +1,6 @@
 
 exports.up = function(knex) {
-    return knex.schema.createTable('vaiculo', table=>{
+    return knex.schema.createTable('veiculo', table=>{
         table.increments('id');
         table.integer('usuarioId').unsigned().references('usuario.id');
         table.string('placa');
@@ -13,5 +13,5 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-    return knex.schema.dropTableIfExists('vaiculo');
+    return knex.schema.dropTableIfExists('veiculo');
 };
