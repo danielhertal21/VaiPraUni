@@ -11,28 +11,32 @@ module.exports = app => {
 
     return async (req, res) => {
         try {
-            let { nome, cpf, whatsapp, email, senha } = req.body;
+            let { nome, cpf, whatsapp, email, password } = req.body;
+
+            cpf = cpf.replaceAll('.', '').replaceAll('-', '');
 
             existsOrError(nome, "Informe o nome");
-            existsOrError(cpf, "Informe o cpf");
-            validationCPF(cpf, "Cpf Invalido");
+
+            existsOrError(cpf, "Informe o CPF");
+            validationCPF(cpf, "CPF Invalido");
+
             existsOrError(whatsapp, "Informe o whatsapp");
             existsOrError(email, "Informe o email");
-            existsOrError(senha, "Informe a senha");
-            
+            existsOrError(password, "Informe a senha");
+
             let usscpf = await app.db('usuario').where({ cpf }).first();
             notExistsOrError(usscpf, "CPF ja cadastrado");
-            
+
             let ussemail = await app.db('usuario').where({ email }).first();
             notExistsOrError(ussemail, "Email ja cadastrado");
 
-            senha = encryptPassword(senha);
+            password = encryptPassword(password);
 
-            await app.db('usuario').insert({nome, cpf, whatsapp, email, senha});
+            await app.db('usuario').insert({ nome, cpf, whatsapp, email, senha: password });
 
-            return res.status(201).send({nome, cpf, whatsapp, email});
+            return res.status(201).send({ status: true });
         } catch (err) {
-            return res.status(400).send(err);
+            return res.status(400).send({ status: false, result: err });
         }
     }
 

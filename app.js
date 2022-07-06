@@ -3,6 +3,12 @@ const consign = require('consign')
 const db = require('./config/db')
 const dontenv = require('dotenv');
 
+var moment = require('moment-timezone');
+
+moment().tz("America/Sao_Paulo").format();
+
+app.moment = moment;
+
 dontenv.config();
 
 app.db = db;

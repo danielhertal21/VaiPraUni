@@ -1,4 +1,4 @@
-// const types = require('mysql').types;
+// const types = require('pg').types;
 // const TIMESTAMPTZ_OID = 1184;
 // const TIMESTAMP_OID = 1114;
 // types.setTypeParser(TIMESTAMPTZ_OID, val => val);
@@ -15,10 +15,9 @@ module.exports = {
 		database: process.env.CONNECTION_DATABASE,
 		user: process.env.CONNECTION_USER,
 		password: process.env.CONNECTION_PASSWORD,
-		timezone: process.env.TZ
-		//connectionString: process.env.DATABASE_URL,
-      	//ssl: { rejectUnauthorized: false },
+		timezone: "-03:00",
 	},
+
 	pool: {
 		min: 2,
 		max: 10
@@ -26,8 +25,8 @@ module.exports = {
 	migrations: {
 		tableName: 'knex_migrations',
 		directory: `${__dirname}/db/migrations`
-    },
-    seeds: {
-      directory: `${__dirname}/db/seeds`
-    }
+	},
+	seeds: {
+		directory: `${__dirname}/db/seeds`
+	}
 };

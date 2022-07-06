@@ -4,9 +4,12 @@ exports.up = function(knex) {
         table.increments('id');
         table.integer('motoristaId').unsigned().references('usuario.id');
         table.integer('vagas');
-        table.string('origem');
-        table.string('destino');
-        table.datetime('horario');
+        table.string('localorigem');
+        table.date('datasaida');
+        table.time('horasaida');
+        table.string('localdestino');
+        table.date('datachegada');
+        table.time('horachegada');
     });
 };
 
