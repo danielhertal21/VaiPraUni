@@ -8,4 +8,4 @@ knex.migrate.latest([config]).then(_ => {
 
 
 
-module.exports = knex;
+module.exports = knex
