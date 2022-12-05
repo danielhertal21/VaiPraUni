@@ -13,7 +13,7 @@ module.exports = app => {
         try {
             let { nome, cpf, whatsapp, email, password } = req.body;
 
-            cpf = cpf.replaceAll('.', '').replaceAll('-', '');
+            cpf = cpf.replace(/[^0-9]/g,'');
 
             existsOrError(nome, "Informe o nome");
 
@@ -36,6 +36,7 @@ module.exports = app => {
 
             return res.status(201).send({ status: true });
         } catch (err) {
+            console.log(err);
             return res.status(400).send({ status: false, result: err });
         }
     }

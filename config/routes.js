@@ -3,6 +3,7 @@ const express = require('express');
 module.exports = app => {
 
     app.route('/api/cadastro').post(app.api.auth.cadastro);
+    app.route('/api/perfil').get(app.api.auth.perfil);
     app.route('/api/login').post(app.api.auth.login);
 
 

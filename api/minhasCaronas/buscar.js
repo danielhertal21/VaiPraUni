@@ -29,9 +29,10 @@ module.exports = app => {
                     NcaronasPegas++;
                 }
             }
-
+            console.log(caronas);
             return res.send({ NcaronasFeitas, NcaronasPegas, caronas: caronas.splice(0, 5) });
         } catch (err) {
+            console.log(err);
             return res.status(400).send({ erro: "Ocorreu um erro na busca \ntente novamente mais tarde." });
         }
     }
